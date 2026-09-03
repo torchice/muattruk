@@ -1,0 +1,11 @@
+/node_modules
+/.next
+/out
+.DS_Store
+.env*.local
+.vercel
+*.tsbuildinfo
+
+# Raw source art (optimized copies live in /public/ban)
+/template_katalog_new
+/template katalog muatparts plus
