@@ -39,7 +39,7 @@ export const Header = () => {
             href="/reminder"
             className="hidden rounded-md px-3 py-2 text-sm font-semibold text-muat-muted transition hover:text-muat-primary lg:block"
           >
-            Pengingat
+            Pengingat Konsumsi
           </Link>
           <WaButton
             pageType="header"
@@ -52,7 +52,7 @@ export const Header = () => {
             href="/find-a-part"
             className="rounded-lg bg-muat-primary px-4 py-2 text-sm font-bold text-white shadow-sm transition hover:bg-muat-primary-dark"
           >
-            Cari Part
+            Cari Sparepart
           </Link>
           <button
             onClick={() => setOpen((v) => !v)}

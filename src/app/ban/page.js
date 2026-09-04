@@ -49,7 +49,7 @@ export default function Page() {
         </div>
 
         <div className="mt-8">
-          <WaButton pageType="ban-index">Nggak nemu ukuran? Chat kami</WaButton>
+          <WaButton pageType="ban-index">Belum ketemu ukurannya? Chat kami</WaButton>
         </div>
       </section>
     </>

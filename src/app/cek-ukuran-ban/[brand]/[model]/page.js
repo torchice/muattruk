@@ -102,7 +102,7 @@ export default function Page({ params }) {
               Ukuran sedang kami konfirmasi
             </h2>
             <p className="mt-1 text-sm text-muat-muted">
-              Biar nggak salah ukuran (salah ukuran = salah harga), chat kami dan
+              Biar tidak salah ukuran (salah ukuran = salah harga), chat kami dan
               sebutkan {brand.name} {model.name} — kami kasih ukuran ban yang
               pasti plus harganya.
             </p>

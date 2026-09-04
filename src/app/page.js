@@ -88,7 +88,7 @@ export default function Home() {
                 href="/find-a-part"
                 className="rounded-xl bg-muat-primary px-6 py-3.5 font-bold text-white shadow-sm transition hover:bg-muat-primary-dark"
               >
-                Cari Part Sekarang
+                Cari Sparepart Sekarang
               </Link>
               <Link
                 href="/category"
@@ -250,7 +250,7 @@ export default function Home() {
               href="/find-a-part"
               className="rounded-xl bg-muat-primary px-6 py-3.5 font-bold text-white transition hover:bg-muat-primary-dark"
             >
-              Cari Part
+              Cari Sparepart
             </Link>
             <Link
               href="/reminder"

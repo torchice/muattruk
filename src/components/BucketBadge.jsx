@@ -15,7 +15,7 @@ export const BucketBadge = ({ bucket }) => {
           (isA ? "bg-muat-ok" : "bg-muat-gold")
         }
       />
-      {isA ? "Stok siap · konfirmasi hari ini" : "Perlu dicari · SLA 1–2 hari"}
+      {isA ? "Stok siap · konfirmasi hari ini" : "Perlu dicari · estimasi 1–2 hari"}
     </span>
   );
 };

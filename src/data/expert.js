@@ -3,7 +3,7 @@
 export const expertTopics = [
   {
     id: "fitment-oli",
-    title: "Panduan Fitment Oli",
+    title: "Panduan Pilih Oli",
     prompt: "Oli apa untuk truk saya?",
     answer:
       "Untuk Hino Ranger & Isuzu Giga, pakai oli diesel 15W-40 API CI-4. Fuso Canter generasi baru bisa 10W-40. Golden Crown 15W-40 (20L) cocok untuk mayoritas armada Anda. Ganti tiap ~10.000 km atau 2–3 bulan.",
@@ -17,7 +17,7 @@ export const expertTopics = [
   },
   {
     id: "decoder-ban",
-    title: "Decoder Spesifikasi Ban",
+    title: "Arti Kode Ban",
     prompt: "Arti kode 1000-20 16PR?",
     answer:
       "1000-20 = lebar 10 inci, diameter rim 20 inci. 16PR = 16 ply rating (indeks beban tinggi, cocok muatan berat). Pola Rib untuk jalan aspal jarak jauh; Lug untuk medan berat/tambang.",

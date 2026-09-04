@@ -26,7 +26,7 @@ export default function Page() {
       <section className="container-x py-12">
         <p className="max-w-2xl text-muat-muted">
           Pilih merek truk Anda, lalu pilih model. Kami tampilkan ukuran ban yang
-          cocok — tinggal chat harga via WhatsApp. Nggak yakin? Chat kami, kami
+          cocok — tinggal chat harga via WhatsApp. Masih ragu? Chat kami, kami
           bantu carikan ukuran yang pas.
         </p>
 

@@ -237,8 +237,8 @@ function buildFaqs(s, trucks) {
       )}. Contoh unit: ${truckList}.`,
     },
     {
-      q: `Ready stok dan bisa pasang?`,
-      a: `Sebagian besar ukuran ready. Chat WhatsApp, kami konfirmasi stok hari yang sama dan info pasang.`,
+      q: `Stok tersedia dan bisa pasang?`,
+      a: `Sebagian besar ukuran tersedia. Chat WhatsApp, kami konfirmasi stok hari yang sama dan info pasang.`,
     },
     {
       q: `Bisa kirim luar kota atau COD?`,

@@ -121,7 +121,7 @@ export const ExpertChat = () => {
               note={lastUser}
               className="w-full !py-2.5 text-sm"
             >
-              Lanjut ke Sales via WhatsApp
+              Lanjut Chat via WhatsApp
             </WaButton>
           </div>
 

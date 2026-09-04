@@ -97,14 +97,14 @@ export const FindAPart = () => {
           <div className="space-y-10">
             <BucketBlock
               tone="ok"
-              title="Bucket A — Stok Siap"
+              title="Stok Siap"
               note="Konfirmasi di hari yang sama."
               items={bucketA}
             />
             <BucketBlock
               tone="gold"
-              title="Bucket B — Perlu Dicari"
-              note="SLA 1–2 hari, dikomunikasikan di awal."
+              title="Perlu Dicari"
+              note="Estimasi 1–2 hari, dikomunikasikan di awal."
               items={bucketB}
             />
             {results.length === 0 && (
@@ -163,9 +163,9 @@ const EmptyPrompt = () => (
       Pilih merek truk atau ketik kode part untuk mulai
     </p>
     <p className="mx-auto mt-2 max-w-md text-sm text-muat-muted">
-      Kami tampilkan Bucket A (stok siap, konfirmasi hari ini) dan Bucket B
-      (part langka, SLA 1–2 hari) secara terpisah supaya jelas mana yang bisa
-      langsung dikirim.
+      Kami tampilkan Stok Siap (konfirmasi hari ini) dan Perlu Dicari
+      (part langka, estimasi 1–2 hari) secara terpisah supaya jelas mana yang
+      bisa langsung dikirim.
     </p>
   </div>
 );
