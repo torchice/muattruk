@@ -6,7 +6,7 @@ import { WaButton } from "./WaButton";
 
 const greeting = {
   role: "bot",
-  text: "Halo! Saya Ahli MuatTruk. Tanya dulu, order kalau cocok. Pilih topik atau ketik pertanyaan Anda.",
+  text: "Halo! Saya Ahli MuatTruk. Tanya soal ukuran ban, oli, atau perawatan truk kamu. Pilih topik atau ketik pertanyaan.",
 };
 
 export const ExpertChat = () => {
@@ -36,7 +36,7 @@ export const ExpertChat = () => {
       );
     return (
       hit?.answer ||
-      "Pertanyaan bagus. Tim ahli kami bisa carikan jawaban spesifik untuk tipe truk Anda. Coba pilih salah satu topik, atau gunakan Cari Sparepart untuk pencarian stok."
+      "Pertanyaan bagus. Buat jawaban yang pas tipe truk kamu, chat admin di WhatsApp aja — atau pilih salah satu topik di bawah."
     );
   };
 
@@ -56,14 +56,14 @@ export const ExpertChat = () => {
     <>
       <button
         onClick={() => setOpen((v) => !v)}
-        className="fixed bottom-5 right-5 z-50 flex items-center gap-2 rounded-full bg-muat-primary px-5 py-3.5 font-bold text-white shadow-xl transition hover:bg-muat-primary-dark"
+        className="fixed bottom-24 right-5 z-50 flex items-center gap-2 rounded-full bg-muat-ink px-5 py-3.5 font-bold text-white shadow-xl transition hover:bg-black"
       >
         <span className="text-lg">💬</span>
         <span className="hidden sm:inline">Chat Ahli AI</span>
       </button>
 
       {open && (
-        <div className="fixed bottom-24 right-5 z-50 flex h-[32rem] w-[92vw] max-w-sm flex-col overflow-hidden rounded-2xl border border-muat-line bg-muat-surface shadow-2xl rise">
+        <div className="fixed bottom-[10.5rem] right-5 z-50 flex h-[30rem] max-h-[70vh] w-[92vw] max-w-sm flex-col overflow-hidden rounded-2xl border border-muat-line bg-muat-surface shadow-2xl rise">
           <div className="flex items-center justify-between bg-muat-primary px-4 py-3 text-white">
             <div>
               <div className="text-sm font-extrabold">Chat Ahli AI</div>

@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ExpertChat } from "@/components/ExpertChat";
+import { WaFloat } from "@/components/WaFloat";
 import { Analytics } from "@/components/Analytics";
 import { RefCapture } from "@/components/RefCapture";
 
@@ -15,16 +16,19 @@ export const metadata = {
   ...(process.env.NEXT_PUBLIC_GSC_VERIFICATION
     ? { verification: { google: process.env.NEXT_PUBLIC_GSC_VERIFICATION } }
     : {}),
-  title: "MuatTruk by muatmuat — Sparepart Truk B2B",
+  title: "Harga Ban & Oli Truk — Chat Langsung via WA | MuatTruk",
   description:
-    "Marketplace sparepart truk B2B untuk fleet Indonesia. Cari part cerdas, chat ahli AI, dan pengingat konsumsi. Armada jalan terus, sparepart urusan kami.",
+    "Jual ban truk & oli mesin diesel, harga jelas. Ukuran 750-16, 1000-20, 1100-20; oli 15W-40 pail 20L. Bisa nego, bisa COD, kirim se-Indonesia. Chat WhatsApp — toko Surabaya.",
   keywords: [
-    "sparepart truk",
-    "oli truk",
-    "ban truk",
-    "filter truk",
-    "kampas rem truk",
-    "fleet B2B",
+    "harga ban truk",
+    "ban truk 1000-20",
+    "ban truk 750-16",
+    "ban truk 1100-20",
+    "ban colt diesel",
+    "ban truk fuso",
+    "oli truk diesel",
+    "oli 15w-40 truk",
+    "jual ban truk surabaya",
     "muatmuat",
   ],
 };
@@ -46,6 +50,7 @@ export default function RootLayout({ children }) {
         <main>{children}</main>
         <Footer />
         <ExpertChat />
+        <WaFloat />
         <Analytics />
       </body>
     </html>
