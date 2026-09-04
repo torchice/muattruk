@@ -83,12 +83,12 @@ export default function Home() {
               kamu, harga langsung kami kasih di WhatsApp — bisa nego, bisa COD.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
-              <WaButton pageType="home">Chat Harga di WA</WaButton>
+              <WaButton pageType="home">Chat harga di WA</WaButton>
               <Link
                 href="/ban"
-                className="rounded-lg border border-muat-line px-5 py-3.5 font-mono text-sm font-semibold text-muat-ink transition-colors hover:border-muat-ink"
+                className="inline-flex min-h-[48px] items-center rounded-lg border border-muat-line px-5 py-3.5 text-sm font-semibold text-muat-ink transition-colors hover:border-muat-ink"
               >
-                Lihat Harga Ban
+                Lihat semua harga ban
               </Link>
             </div>
             <div className="mt-8 flex flex-wrap gap-x-5 gap-y-2 font-mono text-[11px] uppercase tracking-[0.1em] text-muat-faint">
@@ -132,8 +132,8 @@ export default function Home() {
                     <span className="tnum block text-sm font-extrabold text-muat-ink">
                       mulai {rpJt(s.priceMin)}
                     </span>
-                    <span className="font-mono text-[10px] uppercase tracking-wide text-muat-primary">
-                      Tanya →
+                    <span className="font-mono text-[10px] uppercase tracking-wide text-muat-faint group-hover:text-muat-primary">
+                      Lihat →
                     </span>
                   </span>
                 </Link>
@@ -247,12 +247,7 @@ export default function Home() {
                       {rpJt(s.priceMin)}–{rpJt(s.priceMax)}
                     </div>
                   </div>
-                  <WaButton
-                    pageType="home-ban"
-                    size={s.size}
-                    variant="outline"
-                    className="!px-4 !py-2.5 text-xs"
-                  >
+                  <WaButton pageType="home-ban" size={s.size} variant="quiet">
                     Tanya harga
                   </WaButton>
                 </div>
@@ -306,10 +301,9 @@ export default function Home() {
                 <WaButton
                   pageType="home-oli"
                   product={`${o.name} ${o.size}`}
-                  variant="outline"
-                  className="!px-3 !py-2 text-xs"
+                  variant="quiet"
                 >
-                  Tanya
+                  Tanya harga
                 </WaButton>
               </div>
             </div>
@@ -389,7 +383,7 @@ export default function Home() {
             ))}
           </ol>
           <div className="mt-8">
-            <WaButton pageType="cara-order">Chat Harga di WA</WaButton>
+            <WaButton pageType="cara-order">Chat harga di WA</WaButton>
           </div>
         </div>
       </section>

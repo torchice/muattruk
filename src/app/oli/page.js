@@ -69,7 +69,7 @@ export default function Page() {
                 <WaButton
                   pageType="oli"
                   product={`${o.name} ${o.size}`}
-                  className="!px-4 !py-2.5 text-xs"
+                  variant="quiet"
                 >
                   Tanya harga
                 </WaButton>

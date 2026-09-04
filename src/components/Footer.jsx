@@ -13,8 +13,8 @@ export const Footer = () => {
             se-Indonesia.
           </p>
           <div className="mt-4">
-            <WaButton pageType="footer" className="!px-4 !py-2.5 text-sm">
-              Chat Harga di WA
+            <WaButton pageType="footer" variant="secondary" className="text-sm">
+              Chat harga di WA
             </WaButton>
           </div>
         </div>

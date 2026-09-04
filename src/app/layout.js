@@ -3,7 +3,6 @@ import { Suspense } from "react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ExpertChat } from "@/components/ExpertChat";
-import { WaFloat } from "@/components/WaFloat";
 import { Analytics } from "@/components/Analytics";
 import { RefCapture } from "@/components/RefCapture";
 
@@ -50,7 +49,6 @@ export default function RootLayout({ children }) {
         <main>{children}</main>
         <Footer />
         <ExpertChat />
-        <WaFloat />
         <Analytics />
       </body>
     </html>

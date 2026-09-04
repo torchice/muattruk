@@ -1,0 +1,40 @@
+/* MuatTruk — portable design tokens (mirror of src/app/globals.css @theme).
+ * Live source of truth is the @theme block; this file is for reuse/handoff.
+ * Hallmark · design-system: design.md */
+:root {
+  /* Warm-orange commercial palette */
+  --color-muat-primary: #f15a22;
+  --color-muat-primary-dark: #c6420f;
+  --color-muat-primary-soft: #fbe6da;
+  --color-muat-ink: #141210;
+  --color-muat-muted: #5a544c;
+  --color-muat-faint: #8f887d;
+  --color-muat-line: #e4ded2;
+  --color-muat-surface: #fbfaf5;
+  --color-muat-bg: #f3f1ea;
+  --color-muat-gold: #a86a12;
+  --color-muat-ok: #2e7a54;
+
+  /* Inverted (dark) blocks */
+  --color-muat-dark: #141210;
+  --color-muat-on-dark: #f3f1ea;
+  --color-muat-on-dark-soft: #9c948a;
+  --color-muat-line-dark: #33302b;
+
+  /* WhatsApp green — ICON GLYPH ONLY, never a button body */
+  --color-wa: #25d366;
+  /* Focus-visible ring */
+  --color-focus: #141210;
+
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Display",
+    "Segoe UI", "Plus Jakarta Sans", sans-serif;
+  --font-mono: ui-monospace, "SF Mono", "JetBrains Mono", "Cascadia Code", Menlo,
+    Consolas, monospace;
+
+  --radius-lg: 0.55rem;
+  --radius-xl: 0.7rem;
+  --radius-2xl: 0.95rem;
+  --radius-3xl: 1.3rem;
+
+  --ease-fluid: cubic-bezier(0.22, 1, 0.36, 1);
+}

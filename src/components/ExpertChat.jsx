@@ -54,27 +54,39 @@ export const ExpertChat = () => {
 
   return (
     <>
+      {/* The one persistent float — a helper launcher, not a second WA button.
+          WhatsApp handoff lives inside the panel. */}
       <button
         onClick={() => setOpen((v) => !v)}
-        className="fixed bottom-24 right-5 z-50 flex items-center gap-2 rounded-full bg-muat-ink px-5 py-3.5 font-bold text-white shadow-xl transition hover:bg-black"
+        aria-expanded={open}
+        aria-label={open ? "Tutup bantuan" : "Buka bantuan: cek ukuran & harga"}
+        className="fixed bottom-5 right-5 z-50 flex min-h-[52px] items-center gap-2.5 rounded-full border border-muat-line bg-muat-surface px-4 py-3 font-bold text-muat-ink shadow-xl transition-transform hover:-translate-y-0.5"
       >
-        <span className="text-lg">💬</span>
-        <span className="hidden sm:inline">Asisten Sparepart</span>
+        <span className="grid h-8 w-8 place-items-center rounded-full bg-muat-primary text-white">
+          {open ? "✕" : "💬"}
+        </span>
+        <span className="pr-1 text-sm">
+          {open ? "Tutup" : "Bantuan ukuran & harga"}
+        </span>
       </button>
 
       {open && (
-        <div className="fixed bottom-[10.5rem] right-5 z-50 flex h-[30rem] max-h-[70vh] w-[92vw] max-w-sm flex-col overflow-hidden rounded-2xl border border-muat-line bg-muat-surface shadow-2xl rise">
-          <div className="flex items-center justify-between bg-muat-primary px-4 py-3 text-white">
+        <div
+          role="dialog"
+          aria-label="Bantuan MuatTruk"
+          className="fixed bottom-[5.25rem] right-5 z-50 flex h-[30rem] max-h-[70vh] w-[92vw] max-w-sm flex-col overflow-hidden rounded-2xl border border-muat-line bg-muat-surface shadow-2xl rise"
+        >
+          <div className="flex items-center justify-between bg-muat-ink px-4 py-3 text-white">
             <div>
-              <div className="text-sm font-extrabold">Asisten Sparepart</div>
-              <div className="text-[11px] text-white/80">
-                Tanya dulu, order kalau cocok
+              <div className="text-sm font-extrabold">Bantuan MuatTruk</div>
+              <div className="text-[11px] text-white/70">
+                Ga tau ukuran? Tanya di sini dulu.
               </div>
             </div>
             <button
               onClick={() => setOpen(false)}
               aria-label="Tutup"
-              className="grid h-8 w-8 place-items-center rounded-lg hover:bg-white/15"
+              className="grid h-8 w-8 place-items-center rounded-lg text-lg hover:bg-white/15"
             >
               ✕
             </button>
@@ -119,9 +131,9 @@ export const ExpertChat = () => {
             <WaButton
               pageType="chat"
               note={lastUser}
-              className="w-full !py-2.5 text-sm"
+              className="w-full !py-3 text-sm"
             >
-              Lanjut Chat via WhatsApp
+              Chat harga di WA
             </WaButton>
           </div>
 

@@ -1,3 +1,6 @@
+/* Hallmark · genre: practical-commercial · design-system: design.md · designed-as-app
+ * theme: warm-orange editorial (kept) · WA hierarchy: primary/secondary/quiet, green = glyph only
+ * pre-emit critique: P5 H4 E5 S5 R5 V4 */
 @import "tailwindcss";
 
 @theme {
@@ -14,6 +17,11 @@
   --color-muat-bg: #f3f1ea;
   --color-muat-gold: #a86a12;
   --color-muat-ok: #2e7a54;
+
+  /* WhatsApp green — ICON GLYPH ONLY, never a button body (design.md CTA rule). */
+  --color-wa: #25d366;
+  /* Focus-visible ring — neutral, high-contrast on warm paper. */
+  --color-focus: #141210;
 
   /* Inverted (dark) blocks — proof + CTA. */
   --color-muat-dark: #141210;
@@ -55,6 +63,16 @@ body {
 ::selection {
   background: var(--color-muat-primary);
   color: #fff;
+}
+
+/* Accessible focus for all people — shown instantly, never animated (design.md a11y). */
+:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+:focus:not(:focus-visible) {
+  outline: none;
 }
 
 .container-x {

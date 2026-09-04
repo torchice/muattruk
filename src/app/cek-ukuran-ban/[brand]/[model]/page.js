@@ -76,9 +76,10 @@ export default function Page({ params }) {
                   <WaButton
                     pageType="cek-ukuran"
                     size={s.size}
+                    variant="secondary"
                     note={`${brand.name} ${model.name}`}
                   >
-                    Tanya Harga Ban {s.size}
+                    Tanya harga ban {s.size}
                   </WaButton>
                   {slugForSize(s.size) && (
                     <Link
