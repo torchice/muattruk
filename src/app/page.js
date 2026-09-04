@@ -329,6 +329,22 @@ export default function Home() {
               Barang jelas, harga jelas, orangnya bisa dihubungi. Mampir aja ke
               toko fisik kami di Surabaya kalau mau cek langsung.
             </p>
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=Jl.%20Kedungdoro%20101%20Surabaya"
+              target="_blank"
+              rel="noopener"
+              className="group mt-6 inline-flex items-start gap-3 rounded-xl border border-muat-line bg-muat-bg p-4 transition-colors hover:border-muat-primary/40"
+            >
+              <span className="text-xl">📍</span>
+              <span>
+                <span className="block text-sm font-bold text-muat-ink">
+                  Jl. Kedungdoro No. 101, Surabaya
+                </span>
+                <span className="font-mono text-[11px] text-muat-primary">
+                  Lihat di Google Maps →
+                </span>
+              </span>
+            </a>
           </div>
           <div className="grid gap-px overflow-hidden rounded-xl border border-muat-line bg-muat-line sm:grid-cols-2">
             {trust.map((x, i) => (

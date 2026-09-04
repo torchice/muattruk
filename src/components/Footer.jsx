@@ -33,11 +33,20 @@ export const Footer = () => {
             Toko
           </h4>
           <p className="mt-3 text-sm leading-relaxed text-muat-muted">
-            {/* GANTI dengan alamat toko asli */}
+            Jl. Kedungdoro No. 101
+            <br />
             Surabaya, Jawa Timur
             <br />
             Senin–Sabtu · 08.00–17.00 WIB
           </p>
+          <a
+            href="https://www.google.com/maps/search/?api=1&query=Jl.%20Kedungdoro%20101%20Surabaya"
+            target="_blank"
+            rel="noopener"
+            className="mt-2 inline-block font-mono text-[11px] font-semibold text-muat-primary hover:underline"
+          >
+            Lihat di Google Maps →
+          </a>
         </div>
 
         <div>
