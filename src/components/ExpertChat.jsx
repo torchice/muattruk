@@ -59,14 +59,14 @@ export const ExpertChat = () => {
         className="fixed bottom-24 right-5 z-50 flex items-center gap-2 rounded-full bg-muat-ink px-5 py-3.5 font-bold text-white shadow-xl transition hover:bg-black"
       >
         <span className="text-lg">💬</span>
-        <span className="hidden sm:inline">Chat Ahli AI</span>
+        <span className="hidden sm:inline">Asisten Sparepart</span>
       </button>
 
       {open && (
         <div className="fixed bottom-[10.5rem] right-5 z-50 flex h-[30rem] max-h-[70vh] w-[92vw] max-w-sm flex-col overflow-hidden rounded-2xl border border-muat-line bg-muat-surface shadow-2xl rise">
           <div className="flex items-center justify-between bg-muat-primary px-4 py-3 text-white">
             <div>
-              <div className="text-sm font-extrabold">Chat Ahli AI</div>
+              <div className="text-sm font-extrabold">Asisten Sparepart</div>
               <div className="text-[11px] text-white/80">
                 Tanya dulu, order kalau cocok
               </div>
