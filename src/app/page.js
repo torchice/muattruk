@@ -42,14 +42,14 @@ const pillars = [
     no: "01",
     title: "Pencarian Part Cerdas",
     tag: "Kami yang Carikan",
-    desc: "Lihat dulu, beli kalau cocok. Stok siap dikonfirmasi hari yang sama, part langka dicarikan dengan SLA jelas.",
+    desc: "Lihat dulu, beli kalau cocok. Stok siap dikonfirmasi hari yang sama, part langka dicarikan dengan estimasi jelas.",
     href: "/find-a-part",
   },
   {
     no: "02",
     title: "Chat Ahli AI",
     tag: "Tanya Dulu, Order Kalau Cocok",
-    desc: "Panduan fitment oli, decoder ban, kalkulator perawatan, diagnosis masalah, dan estimasi anggaran per truk.",
+    desc: "Panduan fitment oli, arti kode ban, kalkulator perawatan, diagnosis masalah, dan estimasi anggaran per truk.",
     href: "/find-a-part",
   },
   {
@@ -66,198 +66,241 @@ export default function Home() {
 
   return (
     <>
-      {/* HERO */}
-      <section className="relative overflow-hidden border-b border-muat-line bg-muat-surface">
-        <div className="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-muat-primary-soft blur-3xl" />
-        <div className="container-x relative grid gap-10 py-14 sm:py-20 lg:grid-cols-2 lg:items-center">
+      {/* HERO — text-first, data-forward */}
+      <section className="border-b border-muat-line bg-muat-surface">
+        <div className="container-x grid gap-12 py-16 sm:py-24 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
           <div className="rise">
-            <span className="inline-flex items-center gap-2 rounded-full border border-muat-line bg-muat-bg px-3 py-1 text-xs font-semibold text-muat-muted">
-              🚚 Sparepart truk B2B · seluruh Indonesia
-            </span>
-            <h1 className="mt-5 text-4xl font-black leading-[1.05] tracking-tight text-muat-ink sm:text-5xl">
+            <span className="eyebrow">Sparepart truk B2B · seluruh Indonesia</span>
+            <h1 className="display mt-6 text-[2.7rem] text-muat-ink sm:text-[4.4rem]">
               Armada Jalan Terus.
               <br />
               <span className="text-muat-primary">Sparepart Urusan Kami.</span>
             </h1>
-            <p className="mt-5 max-w-xl text-lg text-muat-muted">
+            <p className="mt-6 max-w-xl text-lg leading-relaxed text-muat-muted">
               Berhenti menelepon 3–4 distributor untuk cek stok. Ketik tipe truk
               Anda, kami konfirmasi ketersediaan — sering di hari yang sama.
             </p>
-            <div className="mt-7 flex flex-wrap gap-3">
+            <div className="mt-8 flex flex-wrap items-center gap-3">
               <Link
                 href="/find-a-part"
-                className="rounded-xl bg-muat-primary px-6 py-3.5 font-bold text-white shadow-sm transition hover:bg-muat-primary-dark"
+                className="group inline-flex items-center gap-3 rounded-lg bg-muat-ink px-5 py-3.5 font-mono text-sm font-semibold text-muat-on-dark transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5"
               >
                 Cari Sparepart Sekarang
+                <span className="chip" aria-hidden="true">
+                  →
+                </span>
               </Link>
+              <WaButton pageType="home">Chat WhatsApp</WaButton>
               <Link
                 href="/category"
-                className="rounded-xl border border-muat-line bg-muat-surface px-6 py-3.5 font-bold text-muat-ink transition hover:border-muat-primary/40 hover:text-muat-primary"
+                className="rounded-lg border border-muat-line px-5 py-3.5 font-mono text-sm font-semibold text-muat-ink transition-colors hover:border-muat-ink"
               >
                 Lihat Katalog
               </Link>
-              <WaButton pageType="home">Chat WhatsApp</WaButton>
             </div>
-            <div className="mt-8 flex flex-wrap gap-x-8 gap-y-3 text-sm">
+            <div className="mt-10 grid max-w-lg grid-cols-3 gap-6 border-t border-muat-line pt-6">
               <Stat value="< 15 mnt" label="Target respons pertama" />
               <Stat value="Stok siap" label="Konfirmasi hari ini" />
               <Stat value="Tanpa termin" label="Harga transparan" />
             </div>
           </div>
 
-          {/* Quick search card */}
-          <div className="rise rounded-2xl border border-muat-line bg-muat-bg p-6 shadow-sm sm:p-8">
-            <div className="text-sm font-bold text-muat-ink">
-              Cari cepat berdasarkan truk
+          {/* Quick-pick panel — hairline "manifest" style */}
+          <div className="rise overflow-hidden rounded-xl border border-muat-line bg-muat-bg">
+            <div className="flex items-center justify-between border-b border-muat-line bg-muat-surface px-4 py-3">
+              <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-muat-muted">
+                Pilih Armada
+              </span>
+              <span className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-muat-faint">
+                <span className="pulse-dot h-1.5 w-1.5 rounded-full bg-muat-primary" />
+                {trucks.length} merek
+              </span>
             </div>
-            <p className="mt-1 text-sm text-muat-muted">
-              Pilih merek truk untuk melihat part yang cocok.
-            </p>
-            <div className="mt-4 grid grid-cols-2 gap-3">
+            <div className="divide-y divide-muat-line">
               {trucks.map((t) => (
                 <Link
                   key={t.slug}
                   href={`/truck/${t.slug}`}
-                  className="rounded-xl border border-muat-line bg-muat-surface p-4 transition hover:-translate-y-0.5 hover:border-muat-primary/40 hover:shadow-md"
+                  className="group flex items-center justify-between px-4 py-3.5 transition-colors hover:bg-muat-surface"
                 >
-                  <div className="text-2xl">🚚</div>
-                  <div className="mt-2 text-sm font-bold text-muat-ink">
-                    {t.name}
-                  </div>
-                  <div className="text-[11px] text-muat-muted">
-                    {t.models.length} model
-                  </div>
+                  <span className="flex items-center gap-3">
+                    <span className="text-lg">🚚</span>
+                    <span className="text-sm font-bold text-muat-ink group-hover:text-muat-primary">
+                      {t.name}
+                    </span>
+                  </span>
+                  <span className="flex items-center gap-3 font-mono text-[11px] text-muat-faint">
+                    <span className="tnum">{t.models.length} model</span>
+                    <span className="text-muat-muted transition-transform group-hover:translate-x-0.5">
+                      →
+                    </span>
+                  </span>
                 </Link>
               ))}
             </div>
             <Link
               href="/find-a-part"
-              className="mt-4 block rounded-xl bg-muat-ink px-4 py-3 text-center text-sm font-bold text-white transition hover:bg-black"
+              className="group flex items-center justify-between bg-muat-ink px-4 py-3.5 font-mono text-sm font-semibold text-muat-on-dark"
             >
-              Pencarian lanjutan →
+              Pencarian lanjutan
+              <span className="chip" aria-hidden="true">
+                →
+              </span>
             </Link>
           </div>
         </div>
       </section>
 
-      {/* 4 DISCOVERY FEATURES */}
-      <section className="container-x py-16">
+      {/* DISCOVERY — hairline cells */}
+      <section className="container-x py-20">
         <SectionHead
           kicker="Cara belanja"
           title="Temukan part dengan cara Anda"
           sub="Beberapa jalur pencarian, satu tujuan: part yang cocok, cepat dikonfirmasi."
         />
-        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {discovery.map((d) => (
+        <div className="mt-10 grid border border-muat-line sm:grid-cols-2 lg:grid-cols-3">
+          {discovery.map((d, i) => (
             <Link
               key={d.href}
               href={d.href}
-              className="group rounded-2xl border border-muat-line bg-muat-surface p-6 transition hover:-translate-y-1 hover:border-muat-primary/40 hover:shadow-lg"
+              className="group relative flex flex-col border-b border-r border-muat-line p-7 transition-colors hover:bg-muat-surface"
             >
-              <div className="text-3xl">{d.icon}</div>
-              <h3 className="mt-4 text-lg font-extrabold text-muat-ink group-hover:text-muat-primary">
+              <div className="flex items-center justify-between">
+                <span className="text-2xl">{d.icon}</span>
+                <span className="font-mono text-[11px] text-muat-faint">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+              </div>
+              <h3 className="mt-6 text-lg font-extrabold tracking-tight text-muat-ink group-hover:text-muat-primary">
                 {d.title}
               </h3>
-              <p className="mt-1.5 text-sm text-muat-muted">{d.desc}</p>
-              <span className="mt-4 inline-block text-sm font-bold text-muat-primary">
-                Mulai →
+              <p className="mt-1.5 text-sm leading-relaxed text-muat-muted">
+                {d.desc}
+              </p>
+              <span className="mt-5 inline-flex items-center gap-1 font-mono text-[11px] font-bold uppercase tracking-wide text-muat-primary">
+                Mulai{" "}
+                <span className="transition-transform group-hover:translate-x-0.5">
+                  →
+                </span>
               </span>
             </Link>
           ))}
+          <div className="hidden border-b border-muat-line lg:block" />
         </div>
       </section>
 
-      {/* 3 PRODUCT PILLARS */}
+      {/* PILLARS — numbered editorial rows */}
       <section className="border-y border-muat-line bg-muat-surface">
-        <div className="container-x py-16">
+        <div className="container-x py-20">
           <SectionHead
             kicker="Kenapa MuatTruk"
             title="Tiga fitur yang membuat fleet betah"
           />
-          <div className="mt-8 grid gap-5 md:grid-cols-3">
+          <ol className="mt-10 border-t border-muat-line">
             {pillars.map((p) => (
-              <Link
-                key={p.no}
-                href={p.href}
-                className="group relative flex flex-col rounded-2xl border border-muat-line bg-muat-bg p-6 transition hover:border-muat-primary/40 hover:shadow-lg"
-              >
-                <span className="text-4xl font-black text-muat-primary/20 transition group-hover:text-muat-primary/40">
-                  {p.no}
-                </span>
-                <span className="mt-1 w-fit rounded-full bg-muat-primary-soft px-2.5 py-1 text-[11px] font-bold text-muat-primary">
-                  {p.tag}
-                </span>
-                <h3 className="mt-3 text-xl font-extrabold text-muat-ink">
-                  {p.title}
-                </h3>
-                <p className="mt-2 text-sm text-muat-muted">{p.desc}</p>
-              </Link>
+              <li key={p.no}>
+                <Link
+                  href={p.href}
+                  className="group grid items-baseline gap-x-6 gap-y-3 border-b border-muat-line py-8 transition-[padding] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:pl-2 sm:grid-cols-[auto_1fr_auto] sm:gap-x-10"
+                >
+                  <span className="tnum font-mono text-3xl font-medium text-muat-primary sm:text-4xl">
+                    {p.no}
+                  </span>
+                  <div>
+                    <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-muat-faint">
+                      {p.tag}
+                    </span>
+                    <h3 className="mt-2 text-xl font-extrabold tracking-tight text-muat-ink sm:text-2xl">
+                      {p.title}
+                    </h3>
+                    <p className="mt-2 max-w-2xl text-[0.98rem] leading-relaxed text-muat-muted">
+                      {p.desc}
+                    </p>
+                  </div>
+                  <span className="hidden font-mono text-muat-muted transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-1 sm:block">
+                    →
+                  </span>
+                </Link>
+              </li>
             ))}
-          </div>
+          </ol>
         </div>
       </section>
 
-      {/* CATEGORIES STRIP */}
-      <section className="container-x py-16">
+      {/* CATEGORIES — hairline grid */}
+      <section className="container-x py-20">
         <div className="flex items-end justify-between">
           <SectionHead kicker="Kategori" title="Belanja per kategori" />
           <Link
             href="/category"
-            className="hidden text-sm font-bold text-muat-primary hover:underline sm:block"
+            className="hidden font-mono text-sm font-bold text-muat-primary hover:underline sm:block"
           >
             Semua kategori →
           </Link>
         </div>
-        <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
+        <div className="mt-10 grid grid-cols-2 border border-muat-line sm:grid-cols-3 lg:grid-cols-6">
           {categories.map((c) => (
             <Link
               key={c.slug}
               href={`/category/${c.slug}`}
-              className="rounded-2xl border border-muat-line bg-muat-surface p-5 text-center transition hover:-translate-y-1 hover:border-muat-primary/40 hover:shadow-md"
+              className="group border-b border-r border-muat-line p-6 text-center transition-colors hover:bg-muat-surface"
             >
               <div className="text-3xl">{c.icon}</div>
-              <div className="mt-2 text-sm font-bold text-muat-ink">
+              <div className="mt-3 text-sm font-bold text-muat-ink group-hover:text-muat-primary">
                 {c.name}
               </div>
-              <div className="mt-0.5 text-[11px] text-muat-muted">{c.desc}</div>
+              <div className="mt-1 font-mono text-[10px] uppercase tracking-wide text-muat-faint">
+                {c.desc}
+              </div>
             </Link>
           ))}
         </div>
       </section>
 
-      {/* FEATURED PRODUCTS */}
-      <section className="container-x pb-16">
+      {/* FEATURED */}
+      <section className="container-x pb-20">
         <SectionHead kicker="Stok siap" title="Produk paling dicari fleet" />
-        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {featured.map((p) => (
             <ProductCard key={p.id} p={p} />
           ))}
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="container-x pb-20">
-        <div className="overflow-hidden rounded-3xl bg-muat-ink px-8 py-14 text-center text-white sm:px-16">
-          <h2 className="text-2xl font-black sm:text-3xl">
-            Kelola sparepart 10+ truk tanpa repot
-          </h2>
-          <p className="mx-auto mt-3 max-w-xl text-white/70">
-            Buka akun fleet, dapat pengingat konsumsi otomatis, dan konfirmasi
-            stok tanpa menelepon distributor satu per satu.
-          </p>
-          <div className="mt-7 flex flex-wrap justify-center gap-3">
-            <Link
-              href="/find-a-part"
-              className="rounded-xl bg-muat-primary px-6 py-3.5 font-bold text-white transition hover:bg-muat-primary-dark"
-            >
-              Cari Sparepart
-            </Link>
-            <Link
-              href="/reminder"
-              className="rounded-xl border border-white/20 px-6 py-3.5 font-bold text-white transition hover:bg-white/10"
-            >
-              Lihat Pengingat Konsumsi
-            </Link>
+      {/* CTA — dark inversion */}
+      <section className="container-x pb-24">
+        <div className="relative overflow-hidden rounded-2xl bg-muat-dark px-8 py-16 text-muat-on-dark sm:px-16">
+          <div className="gridlines pointer-events-none absolute inset-0 opacity-50" />
+          <div className="relative grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
+            <div>
+              <span className="eyebrow eyebrow--plain font-mono text-muat-on-dark-soft">
+                Untuk fleet 10+ truk
+              </span>
+              <h2 className="display mt-4 text-3xl sm:text-[2.8rem]">
+                Kelola sparepart 10+ truk tanpa repot
+              </h2>
+              <p className="mt-4 max-w-xl leading-relaxed text-muat-on-dark-soft">
+                Buka akun fleet, dapat pengingat konsumsi otomatis, dan
+                konfirmasi stok tanpa menelepon distributor satu per satu.
+              </p>
+            </div>
+            <div className="flex flex-col items-start gap-3">
+              <Link
+                href="/find-a-part"
+                className="group inline-flex items-center gap-3 rounded-lg bg-muat-primary px-5 py-3.5 font-mono text-sm font-semibold text-white transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5"
+              >
+                Cari Sparepart
+                <span className="chip chip--on-primary" aria-hidden="true">
+                  →
+                </span>
+              </Link>
+              <Link
+                href="/reminder"
+                className="rounded-lg border border-muat-line-dark px-5 py-3.5 font-mono text-sm font-semibold text-muat-on-dark transition-colors hover:bg-white/5"
+              >
+                Lihat Pengingat Konsumsi
+              </Link>
+            </div>
           </div>
         </div>
       </section>
@@ -267,7 +310,11 @@ export default function Home() {
 
 const Stat = ({ value, label }) => (
   <div>
-    <div className="text-lg font-extrabold text-muat-ink">{value}</div>
-    <div className="text-xs text-muat-muted">{label}</div>
+    <div className="tnum text-lg font-extrabold tracking-tight text-muat-ink">
+      {value}
+    </div>
+    <div className="mt-0.5 font-mono text-[10px] uppercase tracking-wide text-muat-faint">
+      {label}
+    </div>
   </div>
 );

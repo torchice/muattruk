@@ -100,7 +100,7 @@ export const ReminderBoard = () => {
         <div className="overflow-hidden rounded-2xl border border-muat-line bg-muat-surface">
           <div className="overflow-x-auto">
             <table className="w-full min-w-[820px] text-left text-sm">
-              <thead className="bg-muat-bg text-xs uppercase tracking-wide text-muat-muted">
+              <thead className="bg-muat-bg font-mono text-[11px] uppercase tracking-[0.1em] text-muat-faint">
                 <tr>
                   <Th>Pelanggan</Th>
                   <Th>Produk</Th>
@@ -171,10 +171,12 @@ const KPI = ({ label, value, tone }) => {
         : "text-muat-ok";
   return (
     <div className="rounded-2xl border border-muat-line bg-muat-surface p-5 shadow-sm">
-      <div className="text-xs font-semibold uppercase tracking-wide text-muat-muted">
+      <div className="font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-muat-faint">
         {label}
       </div>
-      <div className={"mt-1 text-2xl font-black " + ring}>{value}</div>
+      <div className={"tnum mt-1.5 text-3xl font-black tracking-tight " + ring}>
+        {value}
+      </div>
     </div>
   );
 };
@@ -190,7 +192,7 @@ const StatusPill = ({ left }) => {
     txt = `${left} hari lagi`;
   }
   return (
-    <span className={"rounded-full px-2.5 py-1 text-xs font-bold " + cls}>
+    <span className={"tnum inline-block rounded-md px-2 py-1 font-mono text-[11px] font-semibold " + cls}>
       {txt}
     </span>
   );

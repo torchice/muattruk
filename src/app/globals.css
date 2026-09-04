@@ -1,19 +1,38 @@
 @import "tailwindcss";
 
 @theme {
-  --color-muat-primary: #c0392b;
-  --color-muat-primary-dark: #96271b;
-  --color-muat-primary-soft: #fbeae7;
-  --color-muat-ink: #1c1917;
-  --color-muat-muted: #6b6560;
-  --color-muat-line: #ece8e4;
-  --color-muat-surface: #ffffff;
-  --color-muat-bg: #faf8f6;
-  --color-muat-gold: #b8860b;
-  --color-muat-ok: #1f8a52;
+  /* Signal-orange + warm-paper + near-black editorial system.
+     Token names kept (muat-*) so the whole app re-skins from here. */
+  --color-muat-primary: #f15a22;
+  --color-muat-primary-dark: #c6420f;
+  --color-muat-primary-soft: #fbe6da;
+  --color-muat-ink: #141210;
+  --color-muat-muted: #5a544c;
+  --color-muat-faint: #8f887d;
+  --color-muat-line: #e4ded2;
+  --color-muat-surface: #fbfaf5;
+  --color-muat-bg: #f3f1ea;
+  --color-muat-gold: #a86a12;
+  --color-muat-ok: #2e7a54;
 
-  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
-    Helvetica, Arial, sans-serif;
+  /* Inverted (dark) blocks — proof + CTA. */
+  --color-muat-dark: #141210;
+  --color-muat-on-dark: #f3f1ea;
+  --color-muat-on-dark-soft: #9c948a;
+  --color-muat-line-dark: #33302b;
+
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Display",
+    "Segoe UI", "Plus Jakarta Sans", sans-serif;
+  --font-mono: ui-monospace, "SF Mono", "JetBrains Mono", "Cascadia Code", Menlo,
+    Consolas, monospace;
+
+  /* Crisper, editorial radii (Tailwind defaults nudged tighter). */
+  --radius-lg: 0.55rem;
+  --radius-xl: 0.7rem;
+  --radius-2xl: 0.95rem;
+  --radius-3xl: 1.3rem;
+
+  --ease-fluid: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 * {
@@ -28,7 +47,14 @@ body {
   background: var(--color-muat-bg);
   color: var(--color-muat-ink);
   font-family: var(--font-sans);
+  letter-spacing: -0.011em;
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--color-muat-primary);
+  color: #fff;
 }
 
 .container-x {
@@ -38,17 +64,112 @@ body {
   padding-inline: 1.25rem;
 }
 
+/* Editorial eyebrow: mono, tracked-out, with an accent tick. */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-muat-faint);
+}
+.eyebrow::before {
+  content: "";
+  width: 20px;
+  height: 1px;
+  background: var(--color-muat-primary);
+}
+.eyebrow--plain::before {
+  display: none;
+}
+
+/* Tabular figures for all data / prices / counters. */
+.tnum {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+}
+
+/* Display headline weight/tracking helper. */
+.display {
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 0.98;
+}
+
+/* Nested "chip" arrow inside a CTA (button-in-button). */
+.chip {
+  display: grid;
+  place-items: center;
+  width: 1.55em;
+  height: 1.55em;
+  border-radius: 0.4em;
+  background: var(--color-muat-primary);
+  color: #fff;
+  font-size: 0.85em;
+  line-height: 1;
+  transition: transform 0.5s var(--ease-fluid);
+}
+.group:hover .chip {
+  transform: translate(2px, -2px);
+}
+.chip--ink {
+  background: var(--color-muat-ink);
+}
+.chip--on-primary {
+  background: #fff;
+  color: var(--color-muat-primary);
+}
+
+/* Faint engineering grid for dark blocks. */
+.gridlines {
+  background-image: linear-gradient(
+      var(--color-muat-line-dark) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, var(--color-muat-line-dark) 1px, transparent 1px);
+  background-size: 62px 62px;
+  -webkit-mask-image: radial-gradient(120% 90% at 25% 0%, #000, transparent 72%);
+  mask-image: radial-gradient(120% 90% at 25% 0%, #000, transparent 72%);
+}
+
 @keyframes rise {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(12px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
-
 .rise {
-  animation: rise 0.5s ease both;
+  animation: rise 0.6s var(--ease-fluid) both;
+}
+
+@keyframes pulse-dot {
+  0% {
+    box-shadow: 0 0 0 0 rgba(241, 90, 34, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 7px rgba(241, 90, 34, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(241, 90, 34, 0);
+  }
+}
+.pulse-dot {
+  animation: pulse-dot 2.4s var(--ease-fluid) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .rise,
+  .pulse-dot {
+    animation: none;
+  }
 }

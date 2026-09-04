@@ -79,9 +79,12 @@ export const FindAPart = () => {
 
           <button
             onClick={() => setSearched(true)}
-            className="mt-4 w-full rounded-xl bg-muat-primary px-5 py-3 font-bold text-white transition hover:bg-muat-primary-dark sm:w-auto"
+            className="group mt-4 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-muat-ink px-5 py-3 font-mono text-sm font-semibold text-muat-on-dark transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5 sm:w-auto"
           >
             Carikan Stok
+            <span className="chip" aria-hidden="true">
+              →
+            </span>
           </button>
           <p className="mt-3 text-xs text-muat-muted">
             💡 Tidak ketemu? Ahli kami tetap bisa carikan — buka Chat Ahli AI di
@@ -127,7 +130,7 @@ export const FindAPart = () => {
 
 const Field = ({ label, children }) => (
   <label className="block">
-    <span className="mb-1.5 block text-xs font-bold uppercase tracking-wide text-muat-muted">
+    <span className="mb-1.5 block font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-muat-faint">
       {label}
     </span>
     {children}
@@ -139,11 +142,13 @@ const BucketBlock = ({ title, note, items, tone }) => {
   const dot = tone === "ok" ? "bg-muat-ok" : "bg-muat-gold";
   return (
     <div>
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-3 border-b border-muat-line pb-3">
         <span className={"h-2.5 w-2.5 rounded-full " + dot} />
-        <h2 className="text-lg font-extrabold text-muat-ink">{title}</h2>
-        <span className="text-sm text-muat-muted">· {note}</span>
-        <span className="ml-auto text-sm font-bold text-muat-muted">
+        <h2 className="text-lg font-extrabold tracking-tight text-muat-ink">
+          {title}
+        </h2>
+        <span className="font-mono text-[11px] text-muat-faint">· {note}</span>
+        <span className="tnum ml-auto font-mono text-[11px] font-semibold text-muat-muted">
           {items.length} part
         </span>
       </div>

@@ -31,7 +31,9 @@ export const Footer = () => {
           ]}
         />
         <div>
-          <h4 className="text-sm font-bold text-muat-ink">Untuk Fleet</h4>
+          <h4 className="font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-muat-faint">
+            Untuk Fleet
+          </h4>
           <p className="mt-3 text-sm text-muat-muted">
             Punya 10+ truk? Buka akun fleet dan dapat pengingat stok otomatis
             via WhatsApp.
@@ -56,7 +58,9 @@ export const Footer = () => {
 
 const FooterCol = ({ title, links }) => (
   <div>
-    <h4 className="text-sm font-bold text-muat-ink">{title}</h4>
+    <h4 className="font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-muat-faint">
+      {title}
+    </h4>
     <ul className="mt-3 space-y-2">
       {links.map(([label, href]) => (
         <li key={href + label}>
